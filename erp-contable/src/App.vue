@@ -3,9 +3,9 @@ import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 const route = useRoute()
 const drawer = ref(true)  // Controla si el menú está abierto
-// Array con las opciones del menú
 const menuItems = [
   { title: 'Dashboard', icon: 'mdi-view-dashboard', to: '/' },
+  { title: 'Motor Contable (Semana 8)', icon: 'mdi-swap-horizontal-bold', to: '/motor-contable' },
   { title: 'Clientes', icon: 'mdi-account-group', to: '/clientes' },
   { title: 'Facturación', icon: 'mdi-receipt', to: '/facturacion' },
   { title: 'Contabilidad', icon: 'mdi-calculator', to: '/contabilidad' }

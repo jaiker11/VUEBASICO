@@ -21,6 +21,42 @@ let movimientos = [
   { id: 2, concepto: 'Compra de insumos', tipo: 'Egreso', monto: 450.50, fecha: '2026-09-16' }
 ];
 
+// Ruta raíz informativa
+app.get('/', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>API ERP Contable Activa</title>
+      <style>
+        body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; padding: 40px; }
+        .card { max-width: 600px; margin: 0 auto; background: #1e293b; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 1px solid #334155; }
+        h1 { color: #38bdf8; margin-top: 0; }
+        .badge { background: #10b981; color: white; padding: 4px 10px; border-radius: 20px; font-size: 14px; }
+        ul { list-style: none; padding-left: 0; }
+        li { margin: 12px 0; background: #0f172a; padding: 12px; border-radius: 8px; border-left: 4px solid #38bdf8; }
+        a { color: #38bdf8; text-decoration: none; font-family: monospace; font-size: 15px; }
+        a:hover { text-decoration: underline; }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <h1>🚀 Servidor ERP Contable <span class="badge">Online</span></h1>
+        <p>El backend de Node.js + Express está funcionando correctamente.</p>
+        <h3>Endpoints disponibles para probar:</h3>
+        <ul>
+          <li><strong>GET:</strong> <a href="/api/movimientos" target="_blank">/api/movimientos</a> (Listar movimientos)</li>
+          <li><strong>GET:</strong> <a href="/api/resumen" target="_blank">/api/resumen</a> (Resumen contable)</li>
+          <li><strong>GET:</strong> <a href="/api/contactos" target="_blank">/api/contactos</a> (Listar contactos)</li>
+        </ul>
+        <p style="color: #94a3b8; font-size: 13px; margin-top: 20px;">Frontend disponible en: <a href="http://localhost:5173/motor-contable" target="_blank">http://localhost:5173/motor-contable</a></p>
+      </div>
+    </body>
+    </html>
+  `);
+});
+
 // ==========================================
 // ENDPOINTS PARA CONTACTOS
 // ==========================================

@@ -1,0 +1,121 @@
+{
+  "info": {
+    "name": "ERP Contable - Taller Semana 8",
+    "_postman_id": "erp-contable-collection-001",
+    "description": "Colección completa de pruebas de API para el ERP Contable (Node.js Express + Vue 3)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Movimientos - 1. Listar Movimientos (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/movimientos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "movimientos"]
+        }
+      }
+    },
+    {
+      "name": "Movimientos - 2. Crear Movimiento Valido (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"concepto\": \"Honorarios por Desarrollo Web\",\n  \"tipo\": \"Ingreso\",\n  \"monto\": 3500,\n  \"fecha\": \"2026-09-24\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/movimientos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "movimientos"]
+        }
+      }
+    },
+    {
+      "name": "Movimientos - 3. Prueba Error 400 Monto Negativo (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"concepto\": \"Gasto Invalido de Prueba\",\n  \"tipo\": \"Egreso\",\n  \"monto\": -150\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/movimientos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "movimientos"]
+        }
+      }
+    },
+    {
+      "name": "Movimientos - 4. Resumen y Balance (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/resumen",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "resumen"]
+        }
+      }
+    },
+    {
+      "name": "Contactos - 1. Listar Contactos (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/contactos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "contactos"]
+        }
+      }
+    },
+    {
+      "name": "Contactos - 2. Crear Contacto (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Tecnologías del Futuro S.A.\",\n  \"rfc\": \"TDF202609XYZ\",\n  \"tipo\": \"Cliente\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/contactos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "contactos"]
+        }
+      }
+    }
+  ]
+}
