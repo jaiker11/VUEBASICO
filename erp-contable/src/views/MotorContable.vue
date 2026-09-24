@@ -8,6 +8,9 @@ const cargando = ref(false);
 const error = ref(null);
 const mensajeExito = ref(null);
 
+// Code review - Edwards Pérez: pregunta. nuevoMovimiento es un ref() de un
+// objeto. ¿Por qué no usaste reactive()? Con ref hay que acordarse de .value
+// en el script; con reactive() el objeto se muta directo.
 const nuevoMovimiento = ref({
   concepto: '',
   tipo: 'Ingreso',
@@ -38,6 +41,9 @@ const saldo = computed(() => {
 });
 
 // ============ MÉTODOS ASÍNCRONOS ============
+// Code review - Edwards Pérez: el try/catch/finally está bien resuelto.
+// Si Express está apagado, la UI avisa que no se pudo conectar y el finally
+// siempre pone cargando en false, así el spinner no se queda pegado.
 async function cargarMovimientos() {
   cargando.value = true;
   error.value = null;
@@ -53,6 +59,9 @@ async function cargarMovimientos() {
   }
 }
 
+// Code review - Edwards Pérez: sugerencia. El aviso de éxito es un v-alert
+// que se borra a los 4 segundos con setTimeout. Un v-snackbar dejaría el
+// formulario y la tabla más limpios, y Vuetify ya trae ese componente.
 async function guardarMovimiento() {
   if (!nuevoMovimiento.value.concepto || !nuevoMovimiento.value.monto) {
     error.value = 'Por favor completa todos los campos requeridos.';
